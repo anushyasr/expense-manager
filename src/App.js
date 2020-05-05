@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import AddExpense from './components/AddExpense';
 
 const App = () => (
   <>
@@ -19,6 +20,9 @@ const App = () => (
       </Route>
       <Route path="/register">
         <Register />
+      </Route>
+      <Route path="/add-expense">
+        <AddExpense />
       </Route>
     </Switch>
   </>

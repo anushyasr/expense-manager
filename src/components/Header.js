@@ -64,6 +64,11 @@ const Header = () => {
               Home
             </NavLink>
           </li>
+          <li>
+            <NavLink exact to="/add-expense" activeClassName={classes.active}>
+              Add Expense
+            </NavLink>
+          </li>
         </ul>
       </Grid>
       <Grid
