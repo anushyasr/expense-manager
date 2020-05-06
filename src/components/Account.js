@@ -1,9 +1,10 @@
 import React from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+
 import SelectWithLabel from './common/SelectWithLabel';
+import FormActions from './common/FormActions';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -16,16 +17,6 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     display: 'block',
     margin: theme.spacing(1),
-  },
-  btn: {
-    textAlign: 'center',
-    width: 100,
-  },
-  btnSave: {
-    marginRight: 10,
-  },
-  btnReset: {
-    marginLeft: 10,
   },
 }));
 
@@ -60,20 +51,7 @@ const Account = () => {
         </FormControl>
 
         <FormControl className={classes.formControl}>
-          <Button
-            className={`${classes.btn} ${classes.btnSave}`}
-            variant="contained"
-            color="primary"
-          >
-            Save
-          </Button>
-          <Button
-            className={`${classes.btn} ${classes.btnReset}`}
-            variant="contained"
-            color="primary"
-          >
-            Reset
-          </Button>
+          <FormActions />
         </FormControl>
       </form>
     </div>
