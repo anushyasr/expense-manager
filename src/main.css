@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #dddddd;
+  background-color: #eeeeee;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -18,4 +18,8 @@ a {
 
 .field {
   width: 300px;
+}
+
+.error {
+  color: #ff0000;
 }
