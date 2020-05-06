@@ -28,11 +28,11 @@ const Login = () => {
     >
       <form className={classes.form}>
         <FormControl className={classes.formControl}>
-          <TextField label="Username" variant="outlined" />
+          <TextField className="field" label="Username" variant="outlined" />
         </FormControl>
 
         <FormControl className={classes.formControl}>
-          <TextField label="Password" variant="outlined" />
+          <TextField className="field" label="Password" variant="outlined" />
         </FormControl>
 
         <FormControl className={classes.formControl}>

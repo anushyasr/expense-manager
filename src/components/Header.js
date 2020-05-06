@@ -65,8 +65,18 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink exact to="/add-expense" activeClassName={classes.active}>
+            <NavLink exact to="/manage-expense" activeClassName={classes.active}>
               Add Expense
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/manage-account" activeClassName={classes.active}>
+              Add Account
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/manage-category" activeClassName={classes.active}>
+              Add Category
             </NavLink>
           </li>
         </ul>

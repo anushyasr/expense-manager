@@ -5,7 +5,9 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
-import AddExpense from './components/AddExpense';
+import Expense from './components/Expense';
+import Account from './components/Account';
+import Category from './components/Category';
 
 const App = () => (
   <>
@@ -21,8 +23,14 @@ const App = () => (
       <Route path="/register">
         <Register />
       </Route>
-      <Route path="/add-expense">
-        <AddExpense />
+      <Route path="/manage-expense">
+        <Expense />
+      </Route>
+      <Route path="/manage-account">
+        <Account />
+      </Route>
+      <Route path="/manage-category">
+        <Category />
       </Route>
     </Switch>
   </>

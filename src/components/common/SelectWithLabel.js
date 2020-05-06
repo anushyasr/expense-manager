@@ -12,14 +12,12 @@ const SelectWithLabel = ({ label, className, options }) => {
 
   return (
     <>
-      <InputLabel ref={inputLabelRef} htmlFor="outlined-Name">
-        {label}
-      </InputLabel>
+      <InputLabel ref={inputLabelRef}>{label}</InputLabel>
       <Select labelWidth={inputLabelWidth} className={className}>
         <MenuItem value="Please Select">
           <em>None</em>
         </MenuItem>
-        {Object.entries(options).map((key, value) => (
+        {Object.entries(options).map(([key, value]) => (
           <MenuItem key={key} value={key}>
             {value}
           </MenuItem>
@@ -34,7 +32,7 @@ SelectWithLabel.defaultProps = {};
 SelectWithLabel.propTypes = {
   label: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
-  options: PropTypes.shape.isRequired,
+  options: PropTypes.object.isRequired,
 };
 
 export default SelectWithLabel;

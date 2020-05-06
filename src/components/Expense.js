@@ -45,28 +45,37 @@ const AddExpense = () => {
               inputVariant="outlined"
               margin="normal"
               label="Date"
-              format="MM/dd/yyyy"
+              format="dd/MM/yyyy"
               showTodayButton
+              className="field"
             />
           </FormControl>
 
           <FormControl className={classes.formControl}>
-            <TextField label="Account" variant="outlined" />
+            <TextField label="Account" className="field" variant="outlined" />
           </FormControl>
 
           <FormControl className={classes.formControl}>
-            <TextField label="Category" variant="outlined" />
+            <TextField label="Category" className="field" variant="outlined" />
           </FormControl>
 
           <FormControl className={classes.formControl}>
-            <TextField label="Amount" variant="outlined" />
+            <TextField label="Amount" className="field" variant="outlined" />
           </FormControl>
 
           <FormControl className={classes.formControl}>
-            <Button className={`${classes.btn} ${classes.btnSave}`} variant="contained" color="primary">
+            <Button
+              className={`${classes.btn} ${classes.btnSave}`}
+              variant="contained"
+              color="primary"
+            >
               Save
             </Button>
-            <Button className={`${classes.btn} ${classes.btnReset}`} variant="contained" color="primary">
+            <Button
+              className={`${classes.btn} ${classes.btnReset}`}
+              variant="contained"
+              color="primary"
+            >
               Reset
             </Button>
           </FormControl>

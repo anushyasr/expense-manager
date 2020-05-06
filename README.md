@@ -72,7 +72,7 @@ I personally prefer airbnb style guide.
 
 ### Install React Dependencies
 
-`npm i react react-dom`
+`npm i react react-dom prop-types`
 
 ### Install Redux Dependencies
 
@@ -80,13 +80,13 @@ I personally prefer airbnb style guide.
 
 ### Install React Router
 
-`npm i redux react-router-dom`
+`npm i react-router-dom`
 
 ### Install Material-UI
 
 `npm i @material-ui/core` 
 
-`@material-ui/pickers @date-io/date-fns@1.3.13 date-fns`
+`npm i @material-ui/pickers @date-io/date-fns@1.3.13 date-fns`
 
 ---
 

@@ -15,3 +15,7 @@ ul li {
 a {
   text-decoration: none;
 }
+
+.field {
+  width: 300px;
+}
