@@ -9,6 +9,14 @@ const LocalStorageUtil = {
     LocalStorage.set('isUserLoggedIn', isUserLoggedIn);
   },
 
+  getCurrentUser() {
+    return LocalStorage.get('currentUser');
+  },
+
+  setCurrentUser(user) {
+    LocalStorage.set('currentUser', user);
+  },
+
   getUsers() {
     return LocalStorage.get('users') || [];
   },

@@ -3,7 +3,7 @@ import LocalStorageUtil from '../utils/LocalStorageUtil';
 const initialState = {
   isUserLoggedIn: LocalStorageUtil.getUserLoggedIn(),
   users: LocalStorageUtil.getUsers(),
-  currentUser: {},
+  currentUser: LocalStorageUtil.getCurrentUser(),
 };
 
 function reducer(state = initialState, action) {
@@ -11,14 +11,18 @@ function reducer(state = initialState, action) {
     case 'ADD_USER': {
       const users = [...state.users];
       users.push(action.user);
+      LocalStorageUtil.setUsers(users);
       return {
         ...state,
         users,
       };
     }
-    case 'SET_CURRENT_USER':
+    case 'SET_LOGGED_IN_USER':
+      LocalStorageUtil.setCurrentUser(action.user);
+      LocalStorageUtil.setUserLoggedIn(true);
       return {
         ...state,
+        isUserLoggedIn: true,
         currentUser: action.user,
       };
     default:

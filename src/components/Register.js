@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { digestMessage } from '../utils/CommonUtil';
-import LocalStorageUtil from '../utils/LocalStorageUtil';
 
 const useStyles = makeStyles({
   form: {
@@ -90,8 +89,7 @@ const Register = ({ users, addUser }) => {
       password: await digestMessage(password),
     };
 
-    addUser(user); // Redux
-    LocalStorageUtil.addUser(user); // LocalStorage
+    addUser(user);
   };
 
   return (
