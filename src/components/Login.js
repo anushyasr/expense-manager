@@ -94,7 +94,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => {
     dispatch({
-      type: 'SET_LOGGED_IN_USER',
+      type: 'LOG_IN_USER',
       user,
     });
   },

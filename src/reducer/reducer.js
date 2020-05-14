@@ -17,13 +17,21 @@ function reducer(state = initialState, action) {
         users,
       };
     }
-    case 'SET_LOGGED_IN_USER':
+    case 'LOG_IN_USER':
       LocalStorageUtil.setCurrentUser(action.user);
       LocalStorageUtil.setUserLoggedIn(true);
       return {
         ...state,
         isUserLoggedIn: true,
         currentUser: action.user,
+      };
+    case 'LOGOUT_USER':
+      LocalStorageUtil.setCurrentUser({});
+      LocalStorageUtil.setUserLoggedIn(false);
+      return {
+        ...state,
+        isUserLoggedIn: false,
+        currentUser: {},
       };
     default:
       return state;

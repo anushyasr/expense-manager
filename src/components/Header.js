@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { NavLink, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -40,7 +42,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Header = () => {
+const Header = ({ isUserLoggedIn, currentUser, logout }) => {
   const history = useHistory();
   const classes = useStyles();
 
@@ -50,6 +52,10 @@ const Header = () => {
 
   const handleRegister = () => {
     history.push('/register');
+  };
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -88,25 +94,68 @@ const Header = () => {
         item
         xs={4}
       >
-        <Button
-          className={classes.btn}
-          variant="contained"
-          color="primary"
-          onClick={handleLogin}
-        >
-          Login
-        </Button>
-        <Button
-          className={classes.btn}
-          variant="contained"
-          color="primary"
-          onClick={handleRegister}
-        >
-          Register
-        </Button>
+        {!isUserLoggedIn && (
+          <>
+            <Button
+              className={classes.btn}
+              variant="contained"
+              color="primary"
+              onClick={handleLogin}
+            >
+              Login
+            </Button>
+            <Button
+              className={classes.btn}
+              variant="contained"
+              color="primary"
+              onClick={handleRegister}
+            >
+              Register
+            </Button>
+          </>
+        )}
+        {isUserLoggedIn && (
+          <>
+            <div>
+              {`Welcome, ${currentUser.name}`}
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="primary"
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            </div>
+          </>
+        )}
       </Grid>
     </Grid>
   );
 };
 
-export default Header;
+Header.defaultProps = {
+  isUserLoggedIn: false,
+  currentUser: {},
+};
+
+Header.propTypes = {
+  isUserLoggedIn: PropTypes.bool,
+  currentUser: PropTypes.object,
+  logout: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isUserLoggedIn: state.isUserLoggedIn,
+  currentUser: state.currentUser,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => {
+    dispatch({
+      type: 'LOGOUT_USER',
+    });
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
