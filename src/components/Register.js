@@ -81,6 +81,9 @@ const Register = ({ users, addUser }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (error.username || error.password || error.confirmPassword) {
+      return;
+    }
     const user = {
       name,
       username,

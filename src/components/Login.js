@@ -18,8 +18,17 @@ const useStyles = makeStyles({
   },
 });
 
-const Login = () => {
+const Login = ({ users }) => {
   const classes = useStyles();
+  const [username, setUsername] = useState = ('');
+  const [password,setPassword] = useState = ('');
+  const handleUsername=(event)=>{
+    const value=event.target.valuecxxdeedesx
+  }
+  const selectedUsers = users.find((user) => {
+    return username === user.username;
+    users.push[user]
+  });
   return (
     <div
       style={{
@@ -28,7 +37,12 @@ const Login = () => {
     >
       <form className={classes.form}>
         <FormControl className={classes.formControl}>
-          <TextField className="field" label="Username" variant="outlined" />
+          <TextField
+            className="field"
+            label="Username"
+            variant="outlined"
+            onChange={handleUsername}
+          />
         </FormControl>
 
         <FormControl className={classes.formControl}>

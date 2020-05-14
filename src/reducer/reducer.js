@@ -1,6 +1,8 @@
+import LocalStorageUtil from '../utils/LocalStorageUtil';
+
 const initialState = {
-  isUserLoggedIn: false,
-  users: [],
+  isUserLoggedIn: LocalStorageUtil.getUserLoggedIn(),
+  users: LocalStorageUtil.getUsers(),
 };
 
 function reducer(state = initialState, action) {
