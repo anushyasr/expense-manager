@@ -1,6 +1,7 @@
 const initialState = {
   isUserLoggedIn: false,
   users: [],
+  currentUser: {},
 };
 
 function reducer(state = initialState, action) {
@@ -13,6 +14,11 @@ function reducer(state = initialState, action) {
         users,
       };
     }
+    case 'SET_CURRENT_USER':
+      return {
+        ...state,
+        currentUser: action.user,
+      };
     default:
       return state;
   }

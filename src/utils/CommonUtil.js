@@ -2,6 +2,10 @@ export function log(message) {
   console.log(message);
 }
 
+export function isObjectEmpty(obj) {
+  return obj === undefined || obj === null || Object.keys(obj).length === 0;
+}
+
 export async function digestMessage(message) {
   const msgBuffer = new TextEncoder('utf-8').encode(message);
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
