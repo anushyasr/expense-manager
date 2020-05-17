@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const SelectWithLabel = ({ label, className, options }) => {
+const SelectWithLabel = ({ label, className, options, selectedValue, changeHandler }) => {
   const inputLabelRef = useRef(null);
   const [inputLabelWidth, setInputLabelWidth] = useState(0);
 
@@ -13,10 +13,13 @@ const SelectWithLabel = ({ label, className, options }) => {
   return (
     <>
       <InputLabel ref={inputLabelRef}>{label}</InputLabel>
-      <Select labelWidth={inputLabelWidth} className={className}>
-        <MenuItem value="Please Select">
-          <em>None</em>
-        </MenuItem>
+      <Select
+        labelWidth={inputLabelWidth}
+        className={className}
+        onChange={(event) => changeHandler(event.target.value)}
+        value={selectedValue || 'Please Select'}
+      >
+        <MenuItem value="Please Select">Please Select</MenuItem>
         {Object.entries(options).map(([key, value]) => (
           <MenuItem key={key} value={key}>
             {value}
@@ -27,12 +30,16 @@ const SelectWithLabel = ({ label, className, options }) => {
   );
 };
 
-SelectWithLabel.defaultProps = {};
+SelectWithLabel.defaultProps = {
+  selectedValue: '',
+};
 
 SelectWithLabel.propTypes = {
   label: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   options: PropTypes.object.isRequired,
+  changeHandler: PropTypes.func.isRequired,
+  selectedValue: PropTypes.string,
 };
 
 export default SelectWithLabel;
