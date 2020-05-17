@@ -10,7 +10,7 @@ const LocalStorageUtil = {
   },
 
   getCurrentUser() {
-    return LocalStorage.get('currentUser');
+    return LocalStorage.get('currentUser') || {};
   },
 
   setCurrentUser(user) {
@@ -32,6 +32,22 @@ const LocalStorageUtil = {
 
   setUsers(users) {
     LocalStorage.set('users', users);
+  },
+
+  getAccounts() {
+    return LocalStorage.get('accounts') || [];
+  },
+
+  setAccounts(accounts) {
+    LocalStorage.set('accounts', accounts);
+  },
+
+  getCategories() {
+    return LocalStorage.get('categories') || [];
+  },
+
+  setCategories(categories) {
+    LocalStorage.set('categories', categories);
   },
 };
 

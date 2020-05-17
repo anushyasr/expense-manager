@@ -4,6 +4,8 @@ const initialState = {
   isUserLoggedIn: LocalStorageUtil.getUserLoggedIn(),
   users: LocalStorageUtil.getUsers(),
   currentUser: LocalStorageUtil.getCurrentUser(),
+  accounts: LocalStorageUtil.getAccounts(),
+  categories: LocalStorageUtil.getCategories(),
 };
 
 function reducer(state = initialState, action) {
@@ -33,6 +35,22 @@ function reducer(state = initialState, action) {
         isUserLoggedIn: false,
         currentUser: {},
       };
+    case 'ADD_ACCOUNT': {
+      const accounts = [...state.accounts];
+      accounts.push(action.account);
+      return {
+        ...state,
+        accounts,
+      };
+    }
+    case 'ADD_CATEGORY': {
+      const categories = [...state.categories];
+      categories.push(action.category);
+      return {
+        ...state,
+        categories,
+      };
+    }
     default:
       return state;
   }
