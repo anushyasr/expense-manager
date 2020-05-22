@@ -20,11 +20,19 @@ const SelectWithLabel = ({ label, className, options, selectedValue, changeHandl
         value={selectedValue || 'Please Select'}
       >
         <MenuItem value="Please Select">Please Select</MenuItem>
-        {Object.entries(options).map(([key, value]) => (
-          <MenuItem key={key} value={key}>
-            {value}
-          </MenuItem>
-        ))}
+        {!Array.isArray(options) &&
+          Object.entries(options).map(([key, value]) => (
+            <MenuItem key={key} value={key}>
+              {value}
+            </MenuItem>
+          ))}
+
+        {Array.isArray(options) &&
+          options.map((element) => (
+            <MenuItem key={element} value={element}>
+              {element}
+            </MenuItem>
+          ))}
       </Select>
     </>
   );
@@ -37,7 +45,7 @@ SelectWithLabel.defaultProps = {
 SelectWithLabel.propTypes = {
   label: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
-  options: PropTypes.object.isRequired,
+  options: PropTypes.any.isRequired,
   changeHandler: PropTypes.func.isRequired,
   selectedValue: PropTypes.string,
 };

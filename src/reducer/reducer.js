@@ -6,6 +6,7 @@ const initialState = {
   currentUser: LocalStorageUtil.getCurrentUser(),
   accounts: LocalStorageUtil.getAccounts(),
   categories: LocalStorageUtil.getCategories(),
+  expenses: LocalStorageUtil.getExpenses(),
 };
 
 function reducer(state = initialState, action) {
@@ -38,6 +39,7 @@ function reducer(state = initialState, action) {
     case 'ADD_ACCOUNT': {
       const accounts = [...state.accounts];
       accounts.push(action.account);
+      LocalStorageUtil.setAccounts(accounts);
       return {
         ...state,
         accounts,
@@ -46,11 +48,22 @@ function reducer(state = initialState, action) {
     case 'ADD_CATEGORY': {
       const categories = [...state.categories];
       categories.push(action.category);
+      LocalStorageUtil.setCategories(categories);
       return {
         ...state,
         categories,
       };
     }
+    case 'ADD_EXPENSES': {
+      const expenses = [...state.expenses];
+      expenses.push(action.expense);
+      LocalStorageUtil.setExpenses(expenses);
+      return {
+        ...state,
+        expenses,
+      };
+    }
+
     default:
       return state;
   }

@@ -49,6 +49,12 @@ const LocalStorageUtil = {
   setCategories(categories) {
     LocalStorage.set('categories', categories);
   },
+  getExpenses() {
+    return LocalStorage.get('expenses') || [];
+  },
+  setExpenses(expenses) {
+    LocalStorage.set('expenses', expenses);
+  },
 };
 
 export default LocalStorageUtil;

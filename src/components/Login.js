@@ -33,7 +33,7 @@ const Login = ({ users, setCurrentUser }) => {
   const handleLogin = async () => {
     const digest = await digestMessage(password);
     const currentUser = users.find(
-      (user) => user.username === username && user.password === digest
+      (user) => user.username === username && user.password === digest,
     );
 
     if (isObjectEmpty(currentUser)) {
